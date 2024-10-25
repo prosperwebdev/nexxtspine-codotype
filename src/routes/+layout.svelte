@@ -3,4 +3,12 @@
 	let { children } = $props();
 </script>
 
-{@render children()}
+<main class="h-full">
+	{@render children()}
+</main>
+
+<style>
+	:global(body) {
+		height: 100dvh;
+	}
+</style>
