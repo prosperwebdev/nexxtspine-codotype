@@ -7,7 +7,7 @@
 	<Register href="/">
 		<div class="p-6 space-y-4 md:space-y-6 sm:p-8">
 			<div class="w-full flex justify-center mb-12">
-				<img class="mr-3 h-16 sm:h-9" src="/logo.png" alt="logo" />
+				<img class="mr-3 h-16 sm:h-12" src="/logo.png" alt="logo" />
 			</div>
 			<form class="flex flex-col space-y-6" action="/">
 				<Label class="space-y-2">
