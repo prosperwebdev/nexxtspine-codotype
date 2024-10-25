@@ -1,14 +1,14 @@
 <script>
-	import '../app.css';
-	let { children } = $props();
+  import '../app.css';
+  let { children } = $props();
 </script>
 
 <main class="h-full">
-	{@render children()}
+  {@render children()}
 </main>
 
 <style>
-	:global(body) {
-		height: 100dvh;
-	}
+  :global(body) {
+    height: 100dvh;
+  }
 </style>
