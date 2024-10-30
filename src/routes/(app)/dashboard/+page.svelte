@@ -1,10 +1,11 @@
 <script>
   import { Card } from 'flowbite-svelte';
   import { CirclePlusOutline, ArrowsRepeatOutline } from 'flowbite-svelte-icons';
+  import InstrumentSets from '../../../lib/components/InstrumentSets.svelte';
 </script>
 
-<div class="grid p-6 gap-6 grid-cols-2">
-  <Card>
+<div class="grid p-6 gap-6 grid-cols-[1fr_1fr]">
+  <Card size="none">
     <CirclePlusOutline class="w-10 h-10 mb-3 text-gray-500 dark:text-gray-400" />
     <a href="/">
       <h5 class="mb-2 text-1xl font-semibold tracking-tight text-gray-900 dark:text-white">New order</h5>
@@ -16,7 +17,7 @@
     </a> -->
   </Card>
 
-  <Card>
+  <Card size="none">
     <ArrowsRepeatOutline class="w-10 h-10 mb-3 text-gray-500 dark:text-gray-400" />
     <a href="/">
       <h5 class="mb-2 text-1xl font-semibold tracking-tight text-gray-900 dark:text-white">Recent cases</h5>
@@ -27,4 +28,8 @@
       <ArrowUpRightFromSquareOutline class="w-4 h-4 ms-2.5" />
     </a> -->
   </Card>
+
+  <div class="col-span-full">
+    <InstrumentSets />
+  </div>
 </div>
