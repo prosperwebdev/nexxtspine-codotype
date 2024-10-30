@@ -2,6 +2,7 @@
   import { Card, Button } from 'flowbite-svelte';
   export let imageUrl = '';
   export let productName = '';
+  export let url = '#';
 </script>
 
 <Card padding="none" size="none" class="justify-around">
@@ -11,7 +12,7 @@
       <a href="/">
         <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{productName}</h5>
       </a>
-      <Button href="/">Customize</Button>
+      <Button href={url}>Customize</Button>
     </div>
   </div>
 </Card>

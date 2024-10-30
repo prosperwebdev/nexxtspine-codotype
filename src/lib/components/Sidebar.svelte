@@ -1,16 +1,10 @@
 <script>
   import { Sidebar, SidebarGroup, SidebarItem, SidebarWrapper } from 'flowbite-svelte';
   import { ShoppingBagSolid, HomeSolid } from 'flowbite-svelte-icons';
-  import { currentNavItem } from '$lib/store';
   let { drawerClosed } = $props();
 
   function handleNavItemClicked(route) {
-    setCurrentNavItem(route);
     drawerClosed();
-  }
-
-  function setCurrentNavItem(route) {
-    currentNavItem.update(() => route);
   }
 </script>
 
