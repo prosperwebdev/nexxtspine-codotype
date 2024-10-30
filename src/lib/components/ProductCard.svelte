@@ -4,8 +4,8 @@
   export let productName = '';
 </script>
 
-<Card padding="none" size="none">
-  <img class="p-8 max-h-56 object-contain rounded-t-lg" src={imageUrl} alt="product 1" />
+<Card padding="none" size="none" class="justify-around">
+  <img class="p-8 max-h-56 h-full object-contain rounded-t-lg" src={imageUrl} alt="product 1" />
   <div class="px-5 pb-5">
     <div class="flex justify-center items-center flex-col gap-6">
       <a href="/">

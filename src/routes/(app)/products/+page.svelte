@@ -1,5 +1,7 @@
 <script>
   import ProductCard from '$lib/components/ProductCard.svelte';
+  import { Search, Button } from 'flowbite-svelte';
+  import { SearchOutline } from 'flowbite-svelte-icons';
 
   let products = [
     {
@@ -42,6 +44,14 @@
 </script>
 
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 w-full">
+  <div class="col-span-full">
+    <form class="flex gap-2">
+      <Search size="md" />
+      <Button class="!p-2.5">
+        <SearchOutline class="w-6 h-6" />
+      </Button>
+    </form>
+  </div>
   {#each products as product}
     <ProductCard imageUrl={product.imageUrl} productName={product.name} />
   {/each}
