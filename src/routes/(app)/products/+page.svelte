@@ -4,10 +4,6 @@
   import { SearchOutline } from 'flowbite-svelte-icons';
   let filterText = $state('');
 
-  const filterProducts = (e) => {
-    console.log(filterText);
-  };
-
   const products = $state([
     {
       name: 'Cervical',
@@ -37,7 +33,7 @@
     {
       name: 'SA ALIF',
       imageUrl: 'https://nexxtspine.com/wp-content/uploads/2022/01/SA-ALIF-Image-NO-Shadow-e1642776756555.png',
-      url: '/sa-alif'
+      url: '/products/sa-alif'
     },
     {
       name: 'Lateral',
@@ -66,13 +62,13 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 w-full">
   <div class="col-span-full">
     <form class="flex gap-2">
-      <Search size="md" on:input={filterProducts} bind:value={filterText} />
+      <Search size="md" bind:value={filterText} />
       <Button class="!p-2.5">
         <SearchOutline class="w-6 h-6" />
       </Button>
     </form>
   </div>
   {#each filteredProducts as product}
-    <ProductCard imageUrl={product.imageUrl} productName={product.name} />
+    <ProductCard imageUrl={product.imageUrl} productName={product.name} url={product.url} />
   {/each}
 </div>
