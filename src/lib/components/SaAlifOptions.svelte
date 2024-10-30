@@ -61,7 +61,7 @@
             <TableBodyCell>27D x 36W</TableBodyCell>
             <TableBodyCell>
               <Label>
-                <NumberInput bind:value={alif.footprints.small} class="flex-1" size="sm" />
+                <NumberInput bind:value={alif.footprints.medium} class="flex-1" size="sm" />
               </Label>
             </TableBodyCell>
           </TableBodyRow>
@@ -69,7 +69,7 @@
             <TableBodyCell>30D x 40W</TableBodyCell>
             <TableBodyCell>
               <Label>
-                <NumberInput bind:value={alif.footprints.small} class="flex-1" size="sm" />
+                <NumberInput bind:value={alif.footprints.large} class="flex-1" size="sm" />
               </Label>
             </TableBodyCell>
           </TableBodyRow>
