@@ -1,6 +1,23 @@
 <script lang="ts">
   import { Section, Register } from 'flowbite-svelte-blocks';
   import { Button, Checkbox, Label, Input } from 'flowbite-svelte';
+  import { goto } from '$app/navigation';
+  import { derived } from 'svelte/store';
+
+  let emailValue = $state('');
+  let passwordValue = $state('');
+
+  let isValid = $derived.by(() => {
+    if (emailValue.length && passwordValue.length) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+
+  function routeToPage() {
+    goto(`/dashboard`);
+  }
 </script>
 
 <Section name="login" sectionClass="w-full ms-6 me-6">
@@ -12,11 +29,11 @@
       <form class="flex flex-col space-y-6" action="/">
         <Label class="space-y-2">
           <span>Your email</span>
-          <Input type="email" name="email" placeholder="name@company.com" required />
+          <Input type="email" name="email" bind:value={emailValue} required />
         </Label>
         <Label class="space-y-2">
           <span>Your password</span>
-          <Input type="password" name="password" placeholder="•••••" required />
+          <Input type="password" name="password" required bind:value={passwordValue} />
         </Label>
         <div class="flex items-start">
           <Checkbox>Remember me</Checkbox>
@@ -24,10 +41,12 @@
             >Forgot password?</a
           >
         </div>
-        <Button type="submit" class="w-full1">Sign in</Button>
+        <Button type="submit" class="w-full1" on:click={routeToPage} disabled={!isValid}
+          >Sign in</Button
+        >
         <p class="text-sm font-light text-gray-500 dark:text-gray-400">
           Don’t have an account yet? <a
-            href="/"
+            href="#"
             class="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a
           >
         </p>
