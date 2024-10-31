@@ -6,29 +6,24 @@
 
   const products = $state([
     {
-      name: 'Cervical',
-      imageUrl: 'https://nexxtspine.com/wp-content/uploads/2019/06/untitled.89.png',
-      url: '#'
-    },
-    {
-      name: 'SA Cervical',
-      imageUrl: 'https://nexxtspine.com/wp-content/uploads/2023/08/sa-cervical-square.png',
-      url: '#'
-    },
-    {
-      name: 'TLIF',
-      imageUrl: 'https://nexxtspine.com/wp-content/uploads/2019/06/untitled.88.png',
-      url: '#'
-    },
-    {
-      name: 'TLIF Oblique',
-      imageUrl: 'https://nexxtspine.com/wp-content/uploads/2019/06/untitled.87.png',
-      url: '#'
-    },
-    {
       name: 'ALIF',
       imageUrl: 'https://nexxtspine.com/wp-content/uploads/2021/02/Profile-.16-Copy-2.png',
-      url: '#'
+      url: ''
+    },
+    {
+      name: 'Cervical',
+      imageUrl: 'https://nexxtspine.com/wp-content/uploads/2019/06/untitled.89.png',
+      url: ''
+    },
+    {
+      name: 'Corpectomy',
+      imageUrl: 'https://nexxtspine.com/wp-content/uploads/2020/04/Corpectomy.182.png',
+      url: ''
+    },
+    {
+      name: 'Lateral',
+      imageUrl: 'https://nexxtspine.com/wp-content/uploads/2021/01/Hero.11-Copy-Copy.png',
+      url: ''
     },
     {
       name: 'SA ALIF',
@@ -36,23 +31,28 @@
       url: '/products/sa-alif'
     },
     {
-      name: 'Lateral',
-      imageUrl: 'https://nexxtspine.com/wp-content/uploads/2021/01/Hero.11-Copy-Copy.png',
-      url: '#'
+      name: 'SA Cervical',
+      imageUrl: 'https://nexxtspine.com/wp-content/uploads/2023/08/sa-cervical-square.png',
+      url: ''
     },
     {
-      name: 'Corpectomy',
-      imageUrl: 'https://nexxtspine.com/wp-content/uploads/2020/04/Corpectomy.182.png',
-      url: '#'
+      name: 'TLIF',
+      imageUrl: 'https://nexxtspine.com/wp-content/uploads/2019/06/untitled.88.png',
+      url: ''
+    },
+    {
+      name: 'TLIF Oblique',
+      imageUrl: 'https://nexxtspine.com/wp-content/uploads/2019/06/untitled.87.png',
+      url: ''
     },
     {
       name: 'VBR',
       imageUrl: 'https://nexxtspine.com/wp-content/uploads/2019/06/untitled.90-1.png',
-      url: '#'
+      url: ''
     }
   ]);
 
-  let filteredProducts = $derived.by(() => {
+  let filteredAndSortedProducts = $derived.by(() => {
     return products.filter((product) => {
       return product.name.toLowerCase().includes(filterText.toLowerCase());
     });
@@ -68,7 +68,7 @@
       </Button>
     </form>
   </div>
-  {#each filteredProducts as product}
+  {#each filteredAndSortedProducts as product}
     <ProductCard imageUrl={product.imageUrl} productName={product.name} url={product.url} />
   {/each}
 </div>
