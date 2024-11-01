@@ -13,6 +13,7 @@
     TableHeadCell
   } from 'flowbite-svelte';
   import { PlusOutline, MinusOutline } from 'flowbite-svelte-icons';
+  import { Checkbox } from 'flowbite-svelte';
 
   let quantityContainerClass = 'grid grid-cols-[auto_1fr_auto] ps-0 pe-0 gap-0';
 
@@ -84,10 +85,8 @@
   </TableBodyCell>
 {/snippet}
 
-<div class="flex justify-between items-center mb-4">
-  <h5 class="text-md leading-none text-gray-900 dark:text-white">Customize</h5>
-</div>
-<div class="flex flex-col gap-16">
+<div class="flex flex-col gap-6">
+  <h3 class="text-md leading-none text-gray-900 dark:text-white">Customize</h3>
   <Accordion>
     <AccordionItem>
       <span slot="header">Footprints</span>
@@ -225,8 +224,6 @@
       </Table>
     </AccordionItem>
   </Accordion>
-
-  <div class="w-full flex justify-center align-middle">
-    <Button class="w-full">Place order</Button>
-  </div>
+  <Checkbox>Check this box to be contacted by customer support after your order.</Checkbox>
+  <Button class="w-full">Place order</Button>
 </div>
