@@ -55,30 +55,33 @@
   });
 </script>
 
-{#snippet quantityModifier(subItemName, subItemSize)}
-  <Button
-    pill={true}
-    outline={false}
-    size="sm"
-    class="dark:bg-transparent"
-    style="background-color: none;"
-    on:click={() => {
-      alifQuantities[subItemName][subItemSize] > 0 && alifQuantities[subItemName][subItemSize]--;
-    }}>
-    <MinusOutline class="w-4 h-4" />
-  </Button>
-  <Label class="flex-grow-1">
-    <NumberInput bind:value={alifQuantities[subItemName][subItemSize]} class="flex-1 text-center" size="sm" />
-  </Label>
-  <Button
-    size="sm"
-    class="dark:hover-none bg-transparent dark:bg-transparent"
-    style="background-color: none;"
-    on:click={() => {
-      alifQuantities[subItemName][subItemSize]++;
-    }}>
-    <PlusOutline class="w-4 h-4" />
-  </Button>
+{#snippet itemDetailRow(rowDetailName, subItemName, subItemSize)}
+  <TableBodyCell>{rowDetailName}</TableBodyCell>
+  <TableBodyCell class={quantityContainerClass}>
+    <Button
+      pill={true}
+      outline={false}
+      size="sm"
+      class="dark:bg-transparent"
+      style="background-color: none;"
+      on:click={() => {
+        alifQuantities[subItemName][subItemSize] > 0 && alifQuantities[subItemName][subItemSize]--;
+      }}>
+      <MinusOutline class="w-4 h-4" />
+    </Button>
+    <Label class="flex-grow-1">
+      <NumberInput bind:value={alifQuantities[subItemName][subItemSize]} class="flex-1 text-center" size="sm" />
+    </Label>
+    <Button
+      size="sm"
+      class="dark:hover-none bg-transparent dark:bg-transparent"
+      style="background-color: none;"
+      on:click={() => {
+        alifQuantities[subItemName][subItemSize]++;
+      }}>
+      <PlusOutline class="w-4 h-4" />
+    </Button>
+  </TableBodyCell>
 {/snippet}
 
 <div class="flex justify-between items-center mb-4">
@@ -95,22 +98,13 @@
         </TableHead>
         <TableBody tableBodyClass="divide-y">
           <TableBodyRow>
-            <TableBodyCell>24D x 32W</TableBodyCell>
-            <TableBodyCell class={quantityContainerClass}>
-              {@render quantityModifier('footprints', 'sm')}
-            </TableBodyCell>
+            {@render itemDetailRow('24D x 32W', 'footprints', 'sm')}
           </TableBodyRow>
           <TableBodyRow>
-            <TableBodyCell>27D x 36W</TableBodyCell>
-            <TableBodyCell class={quantityContainerClass}>
-              {@render quantityModifier('footprints', 'md')}
-            </TableBodyCell>
+            {@render itemDetailRow('27D x 36W', 'footprints', 'md')}
           </TableBodyRow>
           <TableBodyRow>
-            <TableBodyCell>30D x 40W</TableBodyCell>
-            <TableBodyCell class={quantityContainerClass}>
-              {@render quantityModifier('footprints', 'lg')}
-            </TableBodyCell>
+            {@render itemDetailRow('30D x 40W', 'footprints', 'lg')}
           </TableBodyRow>
         </TableBody>
       </Table>
@@ -124,40 +118,22 @@
         </TableHead>
         <TableBody tableBodyClass="divide-y">
           <TableBodyRow>
-            <TableBodyCell>10</TableBodyCell>
-            <TableBodyCell class={quantityContainerClass}>
-              {@render quantityModifier('heights', 'xs')}
-            </TableBodyCell>
+            {@render itemDetailRow('10', 'heights', 'xs')}
           </TableBodyRow>
           <TableBodyRow>
-            <TableBodyCell>12</TableBodyCell>
-            <TableBodyCell class={quantityContainerClass}>
-              {@render quantityModifier('heights', 'sm')}
-            </TableBodyCell>
+            {@render itemDetailRow('12', 'heights', 'sm')}
           </TableBodyRow>
           <TableBodyRow>
-            <TableBodyCell>14</TableBodyCell>
-            <TableBodyCell class={quantityContainerClass}>
-              {@render quantityModifier('heights', 'md')}
-            </TableBodyCell>
+            {@render itemDetailRow('14', 'heights', 'md')}
           </TableBodyRow>
           <TableBodyRow>
-            <TableBodyCell>16</TableBodyCell>
-            <TableBodyCell class={quantityContainerClass}>
-              {@render quantityModifier('heights', 'lg')}
-            </TableBodyCell>
+            {@render itemDetailRow('16', 'heights', 'lg')}
           </TableBodyRow>
           <TableBodyRow>
-            <TableBodyCell>18</TableBodyCell>
-            <TableBodyCell class={quantityContainerClass}>
-              {@render quantityModifier('heights', 'xl')}
-            </TableBodyCell>
+            {@render itemDetailRow('18', 'heights', 'xl')}
           </TableBodyRow>
           <TableBodyRow>
-            <TableBodyCell>20</TableBodyCell>
-            <TableBodyCell class={quantityContainerClass}>
-              {@render quantityModifier('heights', 'xxl')}
-            </TableBodyCell>
+            {@render itemDetailRow('20', 'heights', 'xxl')}
           </TableBodyRow>
         </TableBody>
       </Table>
@@ -171,28 +147,16 @@
         </TableHead>
         <TableBody tableBodyClass="divide-y">
           <TableBodyRow>
-            <TableBodyCell>8&deg;</TableBodyCell>
-            <TableBodyCell class={quantityContainerClass}>
-              {@render quantityModifier('lordoses', 'xs')}
-            </TableBodyCell>
+            {@render itemDetailRow('8\u00B0', 'lordoses', 'xs')}
           </TableBodyRow>
           <TableBodyRow>
-            <TableBodyCell>14&deg;</TableBodyCell>
-            <TableBodyCell class={quantityContainerClass}>
-              {@render quantityModifier('lordoses', 'sm')}
-            </TableBodyCell>
+            {@render itemDetailRow('14\u00B0', 'lordoses', 'sm')}
           </TableBodyRow>
           <TableBodyRow>
-            <TableBodyCell>20&deg;</TableBodyCell>
-            <TableBodyCell class={quantityContainerClass}>
-              {@render quantityModifier('lordoses', 'md')}
-            </TableBodyCell>
+            {@render itemDetailRow('20\u00B0', 'lordoses', 'md')}
           </TableBodyRow>
           <TableBodyRow>
-            <TableBodyCell>25&deg;</TableBodyCell>
-            <TableBodyCell class={quantityContainerClass}>
-              {@render quantityModifier('lordoses', 'lg')}
-            </TableBodyCell>
+            {@render itemDetailRow('25\u00B0', 'lordoses', 'lg')}
           </TableBodyRow>
         </TableBody>
       </Table>
@@ -206,16 +170,10 @@
         </TableHead>
         <TableBody tableBodyClass="divide-y">
           <TableBodyRow>
-            <TableBodyCell>45° Cephalad</TableBodyCell>
-            <TableBodyCell class={quantityContainerClass}>
-              {@render quantityModifier('screwAngulations', 'cephaladCaudal')}
-            </TableBodyCell>
+            {@render itemDetailRow('45° Cephalad', 'screwAngulations', 'cephaladCaudal')}
           </TableBodyRow>
           <TableBodyRow>
-            <TableBodyCell>10° Medial</TableBodyCell>
-            <TableBodyCell class={quantityContainerClass}>
-              {@render quantityModifier('screwAngulations', 'medial')}
-            </TableBodyCell>
+            {@render itemDetailRow('10° Medial', 'screwAngulations', 'medial')}
           </TableBodyRow>
         </TableBody>
       </Table>
@@ -229,28 +187,16 @@
         </TableHead>
         <TableBody tableBodyClass="divide-y">
           <TableBodyRow>
-            <TableBodyCell>20mm</TableBodyCell>
-            <TableBodyCell class={quantityContainerClass}>
-              {@render quantityModifier('screwSizeSmall', 'xs')}
-            </TableBodyCell>
+            {@render itemDetailRow('20mm', 'screwSizeSmall', 'xs')}
           </TableBodyRow>
           <TableBodyRow>
-            <TableBodyCell>25mm</TableBodyCell>
-            <TableBodyCell class={quantityContainerClass}>
-              {@render quantityModifier('screwSizeSmall', 'sm')}
-            </TableBodyCell>
+            {@render itemDetailRow('25mm', 'screwSizeSmall', 'sm')}
           </TableBodyRow>
           <TableBodyRow>
-            <TableBodyCell>30mm</TableBodyCell>
-            <TableBodyCell class={quantityContainerClass}>
-              {@render quantityModifier('screwSizeSmall', 'md')}
-            </TableBodyCell>
+            {@render itemDetailRow('30mm', 'screwSizeSmall', 'md')}
           </TableBodyRow>
           <TableBodyRow>
-            <TableBodyCell>35mm</TableBodyCell>
-            <TableBodyCell class={quantityContainerClass}>
-              {@render quantityModifier('screwSizeSmall', 'lg')}
-            </TableBodyCell>
+            {@render itemDetailRow('35mm', 'screwSizeSmall', 'lg')}
           </TableBodyRow>
         </TableBody>
       </Table>
@@ -264,28 +210,16 @@
         </TableHead>
         <TableBody tableBodyClass="divide-y">
           <TableBodyRow>
-            <TableBodyCell>20mm</TableBodyCell>
-            <TableBodyCell class={quantityContainerClass}>
-              {@render quantityModifier('screwSizeMedium', 'xs')}
-            </TableBodyCell>
+            {@render itemDetailRow('20mm', 'screwSizeMedium', 'xs')}
           </TableBodyRow>
           <TableBodyRow>
-            <TableBodyCell>25mm</TableBodyCell>
-            <TableBodyCell class={quantityContainerClass}>
-              {@render quantityModifier('screwSizeMedium', 'sm')}
-            </TableBodyCell>
+            {@render itemDetailRow('25mm', 'screwSizeMedium', 'sm')}
           </TableBodyRow>
           <TableBodyRow>
-            <TableBodyCell>30mm</TableBodyCell>
-            <TableBodyCell class={quantityContainerClass}>
-              {@render quantityModifier('screwSizeMedium', 'md')}
-            </TableBodyCell>
+            {@render itemDetailRow('30mm', 'screwSizeMedium', 'md')}
           </TableBodyRow>
           <TableBodyRow>
-            <TableBodyCell>35mm</TableBodyCell>
-            <TableBodyCell class={quantityContainerClass}>
-              {@render quantityModifier('screwSizeMedium', 'lg')}
-            </TableBodyCell>
+            {@render itemDetailRow('35mm', 'screwSizeMedium', 'lg')}
           </TableBodyRow>
         </TableBody>
       </Table>
