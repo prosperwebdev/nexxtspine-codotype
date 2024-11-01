@@ -1,6 +1,15 @@
 <script>
   import SaAlifOptions from '../../../../lib/components/SaAlifOptions.svelte';
+  import { Breadcrumb, BreadcrumbItem } from 'flowbite-svelte';
 </script>
+
+<div class="p-3">
+  <Breadcrumb aria-label="Default breadcrumb example">
+    <BreadcrumbItem href="/dashboard" home>Dashboard</BreadcrumbItem>
+    <BreadcrumbItem href="/products">Products</BreadcrumbItem>
+    <BreadcrumbItem>Stand Alone Alif</BreadcrumbItem>
+  </Breadcrumb>
+</div>
 
 <div class="p-6">
   <div class="shrink-0 max-w-md lg:max-w-lg mx-auto">

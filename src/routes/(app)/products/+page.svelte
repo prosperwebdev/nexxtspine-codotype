@@ -2,7 +2,9 @@
   import ProductCard from '$lib/components/ProductCard.svelte';
   import { Search, Button } from 'flowbite-svelte';
   import { SearchOutline } from 'flowbite-svelte-icons';
+  import { Spinner } from 'flowbite-svelte';
   let filterText = $state('');
+  let isBusy = $state(false);
 
   const products = $state([
     {
@@ -59,16 +61,22 @@
   });
 </script>
 
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 w-full">
-  <div class="col-span-full">
-    <form class="flex gap-2">
-      <Search size="md" bind:value={filterText} />
-      <Button class="!p-2.5">
-        <SearchOutline class="w-6 h-6" />
-      </Button>
-    </form>
+{#if isBusy}
+  <div class="flex items-center justify-center w-full h-full">
+    <Spinner class="w-10 h-10 text-gray-500 dark:text-gray-400" />
   </div>
-  {#each filteredAndSortedProducts as product}
-    <ProductCard imageUrl={product.imageUrl} productName={product.name} url={product.url} />
-  {/each}
-</div>
+{:else}
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 w-full">
+    <div class="col-span-full">
+      <form class="flex gap-2">
+        <Search size="md" bind:value={filterText} />
+        <Button class="!p-2.5">
+          <SearchOutline class="w-6 h-6" />
+        </Button>
+      </form>
+    </div>
+    {#each filteredAndSortedProducts as product}
+      <ProductCard imageUrl={product.imageUrl} productName={product.name} url={product.url} />
+    {/each}
+  </div>
+{/if}

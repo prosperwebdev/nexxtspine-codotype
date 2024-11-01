@@ -40,12 +40,46 @@
       cephaladCaudal: 0,
       Medial: 0
     },
-    screwSizes: {
-      coming: 0,
-      soon: 0
+    screwSizeSmall: {
+      xs: 0,
+      sm: 0,
+      md: 0,
+      lg: 0
+    },
+    screwSizeMedium: {
+      xs: 0,
+      sm: 0,
+      md: 0,
+      lg: 0
     }
   });
 </script>
+
+{#snippet quantityModifier(subItemName, subItemSize)}
+  <Button
+    pill={true}
+    outline={false}
+    size="sm"
+    class="dark:bg-transparent"
+    style="background-color: none;"
+    on:click={() => {
+      alifQuantities[subItemName][subItemSize] > 0 && alifQuantities[subItemName][subItemSize]--;
+    }}>
+    <MinusOutline class="w-4 h-4" />
+  </Button>
+  <Label class="flex-grow-1">
+    <NumberInput bind:value={alifQuantities[subItemName][subItemSize]} class="flex-1 text-center" size="sm" />
+  </Label>
+  <Button
+    size="sm"
+    class="dark:hover-none bg-transparent dark:bg-transparent"
+    style="background-color: none;"
+    on:click={() => {
+      alifQuantities[subItemName][subItemSize]++;
+    }}>
+    <PlusOutline class="w-4 h-4" />
+  </Button>
+{/snippet}
 
 <div class="flex justify-between items-center mb-4">
   <h5 class="text-md leading-none text-gray-900 dark:text-white">Customize</h5>
@@ -63,55 +97,19 @@
           <TableBodyRow>
             <TableBodyCell>24D x 32W</TableBodyCell>
             <TableBodyCell class={quantityContainerClass}>
-              <Button
-                pill={true}
-                outline={false}
-                size="sm"
-                class="dark:bg-transparent"
-                style="background-color: none;"
-                on:click={() => {
-                  alifQuantities.footprints.sm > 0 && alifQuantities.footprints.sm--;
-                }}>
-                <MinusOutline class="w-4 h-4" />
-              </Button>
-              <Label class="flex-grow-1">
-                <NumberInput bind:value={alifQuantities.footprints.sm} class="flex-1 text-center" size="sm" />
-              </Label>
-              <Button
-                size="sm"
-                class="dark:hover-none bg-transparent dark:bg-transparent"
-                style="background-color: none;"
-                on:click={alifQuantities.footprints.sm++}>
-                <PlusOutline class="w-4 h-4" />
-              </Button>
+              {@render quantityModifier('footprints', 'sm')}
             </TableBodyCell>
           </TableBodyRow>
           <TableBodyRow>
             <TableBodyCell>27D x 36W</TableBodyCell>
             <TableBodyCell class={quantityContainerClass}>
-              <Button pill={true} outline={false} size="sm" class="dark:bg-transparent" style="background-color: none;">
-                <MinusOutline class="w-4 h-4" />
-              </Button>
-              <Label>
-                <NumberInput bind:value={alifQuantities.footprints.md} class="flex-1 text-center" size="sm" />
-              </Label>
-              <Button pill={true} outline={false} size="sm" class="dark:bg-transparent" style="background-color: none;">
-                <PlusOutline class="w-4 h-4" />
-              </Button>
+              {@render quantityModifier('footprints', 'md')}
             </TableBodyCell>
           </TableBodyRow>
           <TableBodyRow>
             <TableBodyCell>30D x 40W</TableBodyCell>
             <TableBodyCell class={quantityContainerClass}>
-              <Button pill={true} outline={false} size="sm" class="dark:bg-transparent" style="background-color: none;">
-                <MinusOutline class="w-4 h-4" />
-              </Button>
-              <Label>
-                <NumberInput bind:value={alifQuantities.footprints.lg} class="flex-1 text-center" size="sm" />
-              </Label>
-              <Button pill={true} outline={false} size="sm" class="dark:bg-transparent" style="background-color: none;">
-                <PlusOutline class="w-4 h-4" />
-              </Button>
+              {@render quantityModifier('footprints', 'lg')}
             </TableBodyCell>
           </TableBodyRow>
         </TableBody>
@@ -128,85 +126,37 @@
           <TableBodyRow>
             <TableBodyCell>10</TableBodyCell>
             <TableBodyCell class={quantityContainerClass}>
-              <Button pill={true} outline={false} size="sm" class="dark:bg-transparent" style="background-color: none;">
-                <MinusOutline class="w-4 h-4" />
-              </Button>
-              <Label class="flex-grow-1">
-                <NumberInput bind:value={alifQuantities.heights.xs} class="flex-1 text-center" size="sm" />
-              </Label>
-              <Button pill={true} outline={false} size="sm" class="dark:bg-transparent" style="background-color: none;">
-                <PlusOutline class="w-4 h-4" />
-              </Button>
+              {@render quantityModifier('heights', 'xs')}
             </TableBodyCell>
           </TableBodyRow>
           <TableBodyRow>
             <TableBodyCell>12</TableBodyCell>
             <TableBodyCell class={quantityContainerClass}>
-              <Button pill={true} outline={false} size="sm" class="dark:bg-transparent" style="background-color: none;">
-                <MinusOutline class="w-4 h-4" />
-              </Button>
-              <Label>
-                <NumberInput bind:value={alifQuantities.heights.sm} class="flex-1 text-center" size="sm" />
-              </Label>
-              <Button pill={true} outline={false} size="sm" class="dark:bg-transparent" style="background-color: none;">
-                <PlusOutline class="w-4 h-4" />
-              </Button>
+              {@render quantityModifier('heights', 'sm')}
             </TableBodyCell>
           </TableBodyRow>
           <TableBodyRow>
             <TableBodyCell>14</TableBodyCell>
             <TableBodyCell class={quantityContainerClass}>
-              <Button pill={true} outline={false} size="sm" class="dark:bg-transparent" style="background-color: none;">
-                <MinusOutline class="w-4 h-4" />
-              </Button>
-              <Label>
-                <NumberInput bind:value={alifQuantities.heights.md} class="flex-1 text-center" size="sm" />
-              </Label>
-              <Button pill={true} outline={false} size="sm" class="dark:bg-transparent" style="background-color: none;">
-                <PlusOutline class="w-4 h-4" />
-              </Button>
+              {@render quantityModifier('heights', 'md')}
             </TableBodyCell>
           </TableBodyRow>
           <TableBodyRow>
             <TableBodyCell>16</TableBodyCell>
             <TableBodyCell class={quantityContainerClass}>
-              <Button pill={true} outline={false} size="sm" class="dark:bg-transparent" style="background-color: none;">
-                <MinusOutline class="w-4 h-4" />
-              </Button>
-              <Label>
-                <NumberInput bind:value={alifQuantities.heights.lg} class="flex-1 text-center" size="sm" />
-              </Label>
-              <Button pill={true} outline={false} size="sm" class="dark:bg-transparent" style="background-color: none;">
-                <PlusOutline class="w-4 h-4" />
-              </Button>
+              {@render quantityModifier('heights', 'lg')}
             </TableBodyCell>
           </TableBodyRow>
           <TableBodyRow>
             <TableBodyCell>18</TableBodyCell>
             <TableBodyCell class={quantityContainerClass}>
-              <Button pill={true} outline={false} size="sm" class="dark:bg-transparent" style="background-color: none;">
-                <MinusOutline class="w-4 h-4" />
-              </Button>
-              <Label>
-                <NumberInput bind:value={alifQuantities.heights.xl} class="flex-1 text-center" size="sm" />
-              </Label>
-              <Button pill={true} outline={false} size="sm" class="dark:bg-transparent" style="background-color: none;">
-                <PlusOutline class="w-4 h-4" />
-              </Button>
+              {@render quantityModifier('heights', 'xl')}
             </TableBodyCell>
           </TableBodyRow>
           <TableBodyRow>
             <TableBodyCell>20</TableBodyCell>
             <TableBodyCell class={quantityContainerClass}>
-              <Button pill={true} outline={false} size="sm" class="dark:bg-transparent" style="background-color: none;">
-                <MinusOutline class="w-4 h-4" />
-              </Button>
-              <Label>
-                <NumberInput bind:value={alifQuantities.heights.xxl} class="flex-1 text-center" size="sm" />
-              </Label>
-              <Button pill={true} outline={false} size="sm" class="dark:bg-transparent" style="background-color: none;">
-                <PlusOutline class="w-4 h-4" />
-              </Button>
+              {@render quantityModifier('heights', 'xxl')}
             </TableBodyCell>
           </TableBodyRow>
         </TableBody>
@@ -223,57 +173,25 @@
           <TableBodyRow>
             <TableBodyCell>8&deg;</TableBodyCell>
             <TableBodyCell class={quantityContainerClass}>
-              <Button pill={true} outline={false} size="sm" class="dark:bg-transparent">
-                <MinusOutline class="w-4 h-4" />
-              </Button>
-              <Label class="flex-grow-1">
-                <NumberInput bind:value={alifQuantities.lordoses.xs} class="flex-1 text-center" size="sm" />
-              </Label>
-              <Button pill={true} outline={false} size="sm" class="dark:bg-transparent">
-                <PlusOutline class="w-4 h-4" />
-              </Button>
+              {@render quantityModifier('lordoses', 'xs')}
             </TableBodyCell>
           </TableBodyRow>
           <TableBodyRow>
             <TableBodyCell>14&deg;</TableBodyCell>
             <TableBodyCell class={quantityContainerClass}>
-              <Button pill={true} outline={false} size="sm" class="dark:bg-transparent">
-                <MinusOutline class="w-4 h-4" />
-              </Button>
-              <Label class="flex-grow-1">
-                <NumberInput bind:value={alifQuantities.lordoses.sm} class="flex-1 text-center" size="sm" />
-              </Label>
-              <Button pill={true} outline={false} size="sm" class="dark:bg-transparent">
-                <PlusOutline class="w-4 h-4" />
-              </Button>
+              {@render quantityModifier('lordoses', 'sm')}
             </TableBodyCell>
           </TableBodyRow>
           <TableBodyRow>
             <TableBodyCell>20&deg;</TableBodyCell>
             <TableBodyCell class={quantityContainerClass}>
-              <Button pill={true} outline={false} size="sm" class="dark:bg-transparent">
-                <MinusOutline class="w-4 h-4" />
-              </Button>
-              <Label class="flex-grow-1">
-                <NumberInput bind:value={alifQuantities.lordoses.md} class="flex-1 text-center" size="sm" />
-              </Label>
-              <Button pill={true} outline={false} size="sm" class="dark:bg-transparent">
-                <PlusOutline class="w-4 h-4" />
-              </Button>
+              {@render quantityModifier('lordoses', 'md')}
             </TableBodyCell>
           </TableBodyRow>
           <TableBodyRow>
             <TableBodyCell>25&deg;</TableBodyCell>
             <TableBodyCell class={quantityContainerClass}>
-              <Button pill={true} outline={false} size="sm" class="dark:bg-transparent">
-                <MinusOutline class="w-4 h-4" />
-              </Button>
-              <Label class="flex-grow-1">
-                <NumberInput bind:value={alifQuantities.lordoses.lg} class="flex-1 text-center" size="sm" />
-              </Label>
-              <Button pill={true} outline={false} size="sm" class="dark:bg-transparent">
-                <PlusOutline class="w-4 h-4" />
-              </Button>
+              {@render quantityModifier('lordoses', 'lg')}
             </TableBodyCell>
           </TableBodyRow>
         </TableBody>
@@ -281,15 +199,96 @@
     </AccordionItem>
     <AccordionItem>
       <span slot="header">Screw Angulations</span>
-      <p class="mb-2 text-gray-500 dark:text-gray-400">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ab necessitatibus sint explicabo ...
-      </p>
+      <Table>
+        <TableHead>
+          <TableHeadCell>Type</TableHeadCell>
+          <TableHeadCell>Quantity</TableHeadCell>
+        </TableHead>
+        <TableBody tableBodyClass="divide-y">
+          <TableBodyRow>
+            <TableBodyCell>45° Cephalad</TableBodyCell>
+            <TableBodyCell class={quantityContainerClass}>
+              {@render quantityModifier('screwAngulations', 'cephaladCaudal')}
+            </TableBodyCell>
+          </TableBodyRow>
+          <TableBodyRow>
+            <TableBodyCell>10° Medial</TableBodyCell>
+            <TableBodyCell class={quantityContainerClass}>
+              {@render quantityModifier('screwAngulations', 'medial')}
+            </TableBodyCell>
+          </TableBodyRow>
+        </TableBody>
+      </Table>
     </AccordionItem>
     <AccordionItem>
-      <span slot="header">Screw Sizes</span>
-      <p class="mb-2 text-gray-500 dark:text-gray-400">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ab necessitatibus sint explicabo ...
-      </p>
+      <span slot="header">Ø5.0 Diameter Screws</span>
+      <Table>
+        <TableHead>
+          <TableHeadCell>Length</TableHeadCell>
+          <TableHeadCell>Quantity</TableHeadCell>
+        </TableHead>
+        <TableBody tableBodyClass="divide-y">
+          <TableBodyRow>
+            <TableBodyCell>20mm</TableBodyCell>
+            <TableBodyCell class={quantityContainerClass}>
+              {@render quantityModifier('screwSizeSmall', 'xs')}
+            </TableBodyCell>
+          </TableBodyRow>
+          <TableBodyRow>
+            <TableBodyCell>25mm</TableBodyCell>
+            <TableBodyCell class={quantityContainerClass}>
+              {@render quantityModifier('screwSizeSmall', 'sm')}
+            </TableBodyCell>
+          </TableBodyRow>
+          <TableBodyRow>
+            <TableBodyCell>30mm</TableBodyCell>
+            <TableBodyCell class={quantityContainerClass}>
+              {@render quantityModifier('screwSizeSmall', 'md')}
+            </TableBodyCell>
+          </TableBodyRow>
+          <TableBodyRow>
+            <TableBodyCell>35mm</TableBodyCell>
+            <TableBodyCell class={quantityContainerClass}>
+              {@render quantityModifier('screwSizeSmall', 'lg')}
+            </TableBodyCell>
+          </TableBodyRow>
+        </TableBody>
+      </Table>
+    </AccordionItem>
+    <AccordionItem>
+      <span slot="header">Ø5.5 Diameter Screws</span>
+      <Table>
+        <TableHead>
+          <TableHeadCell>Length</TableHeadCell>
+          <TableHeadCell>Quantity</TableHeadCell>
+        </TableHead>
+        <TableBody tableBodyClass="divide-y">
+          <TableBodyRow>
+            <TableBodyCell>20mm</TableBodyCell>
+            <TableBodyCell class={quantityContainerClass}>
+              {@render quantityModifier('screwSizeMedium', 'xs')}
+            </TableBodyCell>
+          </TableBodyRow>
+          <TableBodyRow>
+            <TableBodyCell>25mm</TableBodyCell>
+            <TableBodyCell class={quantityContainerClass}>
+              {@render quantityModifier('screwSizeMedium', 'sm')}
+            </TableBodyCell>
+          </TableBodyRow>
+          <TableBodyRow>
+            <TableBodyCell>30mm</TableBodyCell>
+            <TableBodyCell class={quantityContainerClass}>
+              {@render quantityModifier('screwSizeMedium', 'md')}
+            </TableBodyCell>
+          </TableBodyRow>
+          <TableBodyRow>
+            <TableBodyCell>35mm</TableBodyCell>
+            <TableBodyCell class={quantityContainerClass}>
+              {@render quantityModifier('screwSizeMedium', 'lg')}
+            </TableBodyCell>
+          </TableBodyRow>
+        </TableBody>
+      </Table>
     </AccordionItem>
   </Accordion>
 
