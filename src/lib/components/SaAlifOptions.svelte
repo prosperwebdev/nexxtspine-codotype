@@ -88,7 +88,7 @@
 
 <div class="flex flex-col gap-6">
   <h3 class="text-md leading-none text-gray-900 dark:text-white">Customize</h3>
-  <Accordion>
+  <Accordion activeClass="bg-primary-0 dark:bg-gray-800 text-blue-600 dark:text-white focus:ring-4 focus:ring-green-200 dark:focus:ring-green-600">
     <AccordionItem>
       <span slot="header">Footprints</span>
       <Table>
