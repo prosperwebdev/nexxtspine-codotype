@@ -10,7 +10,8 @@
     TableBodyCell,
     TableBodyRow,
     TableHead,
-    TableHeadCell
+    TableHeadCell,
+    Card
   } from 'flowbite-svelte';
   import { PlusOutline, MinusOutline } from 'flowbite-svelte-icons';
   import { Checkbox } from 'flowbite-svelte';
@@ -224,6 +225,13 @@
       </Table>
     </AccordionItem>
   </Accordion>
-  <Checkbox>Check this box to be contacted by customer support after your order.</Checkbox>
-  <Button class="w-full">Place order</Button>
+
+  <hr class="my-4 md:my-8 border-gray-200 dark:border-gray-800" />
+
+  <h3 class="text-md leading-none text-gray-900 dark:text-white">Additional options</h3>
+  <Card class="flex flex-col gap-6 p-6">
+    <Checkbox>Talk with customer support?</Checkbox>
+    <Checkbox>Save this configuration for future orders</Checkbox>
+    <Button class="w-full">Place order</Button>
+  </Card>
 </div>
