@@ -16,7 +16,7 @@
   import { PlusOutline, MinusOutline } from 'flowbite-svelte-icons';
   import { Checkbox } from 'flowbite-svelte';
 
-  let quantityContainerClass = 'grid grid-cols-[auto_1fr_auto] ps-0 pe-0 gap-0';
+  let quantityContainerClass = 'grid grid-cols-[auto_1fr_auto] gap-3 items-center px-3';
 
   let alifQuantities = $state({
     footprints: {
@@ -61,11 +61,11 @@
   <TableBodyCell>{rowDetailName}</TableBodyCell>
   <TableBodyCell class={quantityContainerClass}>
     <Button
+      class="h-8 w-8"
+      color="alternative"
       pill={true}
       outline={false}
-      size="sm"
-      class="dark:bg-transparent"
-      style="background-color: none;"
+      size="xs"
       on:click={() => {
         alifQuantities[subItemName][subItemSize] > 0 && alifQuantities[subItemName][subItemSize]--;
       }}>
@@ -75,9 +75,9 @@
       <NumberInput bind:value={alifQuantities[subItemName][subItemSize]} class="flex-1 text-center" size="sm" />
     </Label>
     <Button
-      size="sm"
-      class="dark:hover-none bg-transparent dark:bg-transparent"
-      style="background-color: none;"
+      class="h-8 w-8"
+      size="xs"
+      color="alternative"
       on:click={() => {
         alifQuantities[subItemName][subItemSize]++;
       }}>
