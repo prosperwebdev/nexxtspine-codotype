@@ -232,6 +232,6 @@
   <Card class="flex flex-col gap-6 p-6">
     <Checkbox>Talk with customer support?</Checkbox>
     <Checkbox>Save this configuration for future orders</Checkbox>
-    <Button class="w-full">Place order</Button>
   </Card>
+  <Button class="w-full">Place order</Button>
 </div>
