@@ -11,7 +11,7 @@
     <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">Place a new order</p>
   </Card>
 
-  <Card size="none">
+  <Card size="none" href="/recent-cases">
     <ArrowsRepeatOutline class="w-10 h-10 mb-3 text-gray-500 dark:text-gray-400" />
     <h5 class="mb-2 text-1xl font-semibold tracking-tight text-gray-900 dark:text-white">Recent cases</h5>
     <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">Orders placed in the last 30 days</p>

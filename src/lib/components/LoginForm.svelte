@@ -2,7 +2,6 @@
   import { Section, Register } from 'flowbite-svelte-blocks';
   import { Button, Checkbox, Label, Input } from 'flowbite-svelte';
   import { goto } from '$app/navigation';
-  import { derived } from 'svelte/store';
 
   let emailValue = $state('');
   let passwordValue = $state('');
