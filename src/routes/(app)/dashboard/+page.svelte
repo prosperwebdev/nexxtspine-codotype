@@ -5,7 +5,7 @@
 </script>
 
 <div class="grid p-4 gap-6 grid-cols-[1fr_1fr]">
-  <Card size="none">
+  <Card size="none" href="/products">
     <CirclePlusOutline class="w-10 h-10 mb-3 text-gray-500 dark:text-gray-400" />
     <h5 class="mb-2 text-1xl font-semibold tracking-tight text-gray-900 dark:text-white">New order</h5>
     <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">Place a new order</p>
