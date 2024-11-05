@@ -3,7 +3,6 @@
   import { getContext } from 'svelte';
   let surgeryInfo = getContext('surgeryInfo');
   let items = getContext('order');
-  console.log($items);
 </script>
 
 <Card class="w-full max-w-full rounded-none">

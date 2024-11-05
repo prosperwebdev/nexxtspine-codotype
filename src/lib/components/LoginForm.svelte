@@ -32,7 +32,7 @@
         </Label>
         <Label class="space-y-2">
           <span>Your password</span>
-          <Input type="text" name="password" required bind:value={passwordValue} />
+          <Input type="password" name="password" required bind:value={passwordValue} />
         </Label>
         <div class="flex items-start">
           <Checkbox>Remember me</Checkbox>
