@@ -1,17 +1,18 @@
 <script>
   import { Select, Datepicker, Label, Card } from 'flowbite-svelte';
   import surgeonData from '$lib/surgeonData.json';
+  import hospitalData from '$lib/hospitalData.json';
   import Toolbar from '../../../../lib/components/Toolbar.svelte';
   import { getContext } from 'svelte';
   let surgeryInfo = getContext('surgeryInfo');
 
-  let list = surgeonData;
-  let countries = [
-    { value: 'us', name: 'United States' },
-    { value: 'ca', name: 'Canada' },
-    { value: 'de', name: 'Germany' },
-    { value: 'fr', name: 'France', disabled: true }
-  ];
+  let surgeons = surgeonData;
+  let hospitals = hospitalData;
+
+  function handleDateSelect(event) {
+    let date = event.detail;
+    $surgeryInfo.date = date;
+  }
 </script>
 
 <Toolbar title="Stand Alone Alif" />
@@ -29,18 +30,18 @@
     <div class="flex flex-col gap-8 p-4">
       <Label>
         Select a surgeon
-        <Select class="mt-2" items={list} bind:value={$surgeryInfo.name} />
+        <Select class="mt-2" items={surgeons} bind:value={$surgeryInfo.name} />
       </Label>
 
       <Label>
         Select a hospital
-        <Select class="mt-2" items={countries} bind:value={$surgeryInfo.hospital} />
+        <Select class="mt-2" items={hospitals} bind:value={$surgeryInfo.hospital} />
       </Label>
 
-      <Label>
+      <div>
         <div class="mb-2">Surgery date</div>
-        <Datepicker class="mt-2" />
-      </Label>
+        <Datepicker inline class="mt-2" on:select={handleDateSelect} />
+      </div>
     </div>
   </Card>
 </div>

@@ -1,6 +1,7 @@
 [
   {
     "name": "Dr. Sarah Thompson",
+    "value": "Dr. Sarah Thompson",
     "image": "https://example.com/images/sarah_thompson.jpg",
     "url": "#",
     "last_date_of_surgery": "2024-10-15",
@@ -8,6 +9,7 @@
   },
   {
     "name": "Dr. James Wang",
+    "value": "Dr. James Wang",
     "image": "https://example.com/images/james_wang.jpg",
     "url": "",
     "last_date_of_surgery": "2024-09-28",
@@ -15,6 +17,7 @@
   },
   {
     "name": "Dr. Emily Patel",
+    "value": "Dr. Emily Patel",
     "image": "https://example.com/images/emily_patel.jpg",
     "url": "",
     "last_date_of_surgery": "2024-10-08",
@@ -22,6 +25,7 @@
   },
   {
     "name": "Dr. Michael Johnson",
+    "value": "Dr. Michael Johnson",
     "image": "https://example.com/images/michael_johnson.jpg",
     "url": "",
     "last_date_of_surgery": "2024-10-03",
@@ -29,6 +33,7 @@
   },
   {
     "name": "Dr. Olivia Lee",
+    "value": "Dr. Olivia Lee",
     "image": "https://example.com/images/olivia_lee.jpg",
     "url": "",
     "last_date_of_surgery": "2024-09-25",
@@ -36,6 +41,7 @@
   },
   {
     "name": "Dr. William Kim",
+    "value": "Dr. William Kim",
     "image": "https://example.com/images/william_kim.jpg",
     "url": "",
     "last_date_of_surgery": "2024-10-12",
@@ -43,6 +49,7 @@
   },
   {
     "name": "Dr. Isabella Rodriguez",
+    "value": "Dr. Isabella Rodriguez",
     "image": "https://example.com/images/isabella_rodriguez.jpg",
     "url": "",
     "last_date_of_surgery": "2024-10-20",
@@ -50,6 +57,7 @@
   },
   {
     "name": "Dr. Daniel Nguyen",
+    "value": "Dr. Daniel Nguyen",
     "image": "https://example.com/images/daniel_nguyen.jpg",
     "url": "",
     "last_date_of_surgery": "2024-09-29",
