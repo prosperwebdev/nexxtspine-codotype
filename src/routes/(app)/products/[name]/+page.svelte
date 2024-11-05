@@ -2,11 +2,10 @@
   import { Select, Datepicker, Label, Card } from 'flowbite-svelte';
   import surgeonData from '$lib/surgeonData.json';
   import Toolbar from '../../../../lib/components/Toolbar.svelte';
-  let list = surgeonData;
+  import { getContext } from 'svelte';
+  let surgeryInfo = getContext('surgeryInfo');
 
-  let selectedSurgeon = '';
-  let selectedHospital = '';
-  let selectedSurgeryDate = '';
+  let list = surgeonData;
   let countries = [
     { value: 'us', name: 'United States' },
     { value: 'ca', name: 'Canada' },
@@ -30,17 +29,17 @@
     <div class="flex flex-col gap-8 p-4">
       <Label>
         Select a surgeon
-        <Select class="mt-2" items={list} bind:value={selectedSurgeon} />
+        <Select class="mt-2" items={list} bind:value={$surgeryInfo.name} />
       </Label>
 
       <Label>
         Select a hospital
-        <Select class="mt-2" items={countries} bind:value={selectedHospital} />
+        <Select class="mt-2" items={countries} bind:value={$surgeryInfo.hospital} />
       </Label>
 
       <Label>
         <div class="mb-2">Surgery date</div>
-        <Datepicker class="mt-2" bind:value={selectedSurgeryDate} />
+        <Datepicker class="mt-2" />
       </Label>
     </div>
   </Card>

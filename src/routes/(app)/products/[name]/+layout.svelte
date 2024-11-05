@@ -1,8 +1,5 @@
 <script>
   import StepperButton from '$lib/components/StepperButton.svelte';
-  import { getContext } from 'svelte';
-
-  let currentStep = getContext('currentStep');
   let { children } = $props();
 </script>
 

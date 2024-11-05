@@ -21,7 +21,6 @@
 
   import { getContext } from 'svelte';
   const quantities = getContext('order');
-  const surgeryInfo = getContext('surgeryInfo');
 
   const onScrewTypeSelected = (e, itemIndex) => {
     $quantities[itemIndex].selectedValue = e.target.value;

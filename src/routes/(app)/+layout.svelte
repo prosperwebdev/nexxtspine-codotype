@@ -5,7 +5,6 @@
 
   import { setContext } from 'svelte';
   import { writable } from 'svelte/store';
-  import FooterNexxt from '../../lib/components/FooterNexxt.svelte';
 
   const order = writable([
     {
@@ -20,22 +19,22 @@
     {
       name: 'Heights',
       variations: [
-        { name: '10', quantity: 0 },
-        { name: '12', quantity: 0 },
-        { name: '14', quantity: 0 },
-        { name: '16', quantity: 0 },
-        { name: '18', quantity: 0 },
-        { name: '20', quantity: 0 }
+        { name: '10mm', quantity: 0 },
+        { name: '12mm', quantity: 0 },
+        { name: '14mm', quantity: 0 },
+        { name: '16mm', quantity: 0 },
+        { name: '18mm', quantity: 0 },
+        { name: '20mm', quantity: 0 }
       ],
       fieldType: 'quantity'
     },
     {
       name: 'Lordoses',
       variations: [
-        { name: '8', quantity: 0 },
-        { name: '14', quantity: 0 },
-        { name: '20', quantity: 0 },
-        { name: '25', quantity: 0 }
+        { name: '8mm', quantity: 0 },
+        { name: '14mm', quantity: 0 },
+        { name: '20mm', quantity: 0 },
+        { name: '25mm', quantity: 0 }
       ],
       fieldType: 'quantity'
     },
@@ -71,13 +70,11 @@
     }
   ]);
 
-  const surgeryInfo = writable([
-    {
-      surgeonName: null,
-      surgeryDate: null,
-      hospitalName: null
-    }
-  ]);
+  const surgeryInfo = writable({
+    name: 'surgeon name',
+    date: 'surgery date',
+    hospital: 'hospital name'
+  });
 
   const buttonText = writable('Next');
   const currentStep = writable(1);
