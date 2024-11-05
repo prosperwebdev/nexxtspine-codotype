@@ -38,7 +38,7 @@
           <Checkbox>Remember me</Checkbox>
           <a href="/" class="ml-auto text-sm text-blue-700 hover:underline dark:text-blue-500">Forgot password?</a>
         </div>
-        <Button type="submit" class="w-full1" on:click={routeToPage} disabled={!isValid}>Sign in</Button>
+        <Button type="submit" class="w-full1" on:click={() => routeToPage()} disabled={!isValid}>Sign in</Button>
         <p class="text-sm font-light text-gray-500 dark:text-gray-400">
           Don’t have an account yet? <a href="#" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a>
         </p>
