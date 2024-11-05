@@ -19,7 +19,7 @@
 
         <div class="mt-6 space-y-4border-t border-gray-200 dark:border-gray-700 sm:mt-8">
           <h2 class="text-md text-gray-900 dark:text-white sm:text-2xl mb-4">Order Summary</h2>
-          <Card class="flex flex-col gap-4">
+          <Card class="flex flex-col gap-4 w-full min-w-full">
             <dl>
               <dt class="text-base text-sm text-gray-900 dark:text-white">Surgeon</dt>
               <dd class="text-base font-normal text-sm text-gray-500 dark:text-gray-400">{$surgeryInfo.name}</dd>

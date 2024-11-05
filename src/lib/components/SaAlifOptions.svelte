@@ -109,7 +109,7 @@
   <hr class="my-4 md:my-8 border-gray-200 dark:border-gray-800" />
 
   <h3 class="text-md leading-none text-gray-900 dark:text-white">Additional options</h3>
-  <Card class="flex flex-col gap-6 p-6 w-full">
+  <Card class="flex flex-col gap-6 p-6 w-full min-w-full">
     <Checkbox>Talk with customer support?</Checkbox>
     <Checkbox>Save this configuration for future orders</Checkbox>
   </Card>

@@ -87,9 +87,9 @@
   setContext('surgeryInfo', surgeryInfo);
 </script>
 
-<main class="container">
+<main class="h-dvh grid grid-rows-[auto_1fr] m-auto w-full">
   <Header />
-  <div class="body">
+  <div class="h-full overflow-auto">
     {@render children()}
   </div>
 </main>
@@ -97,16 +97,5 @@
 <style>
   :global(body) {
     height: 100dvh;
-  }
-
-  .container {
-    display: grid;
-    grid-template-rows: auto 1fr;
-    height: 100dvh;
-  }
-
-  .body {
-    overflow: auto;
-    height: 100%;
   }
 </style>
