@@ -13,7 +13,7 @@
   });
 </script>
 
-<Card padding="xl" size="md">
+<Card padding="xl" size="md" class="w-full min-w-full">
   <div class="flex justify-between items-center mb-4">
     <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Recent Surgeons</h5>
     <!-- <a href="/" class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"> View all </a> -->
@@ -40,8 +40,5 @@
         </ListgroupItem>
       </a>
     {/each}
-    <!-- <a href={item.url} class="flex items-center space-x-4 rtl:space-x-reverse">
-      
-    </a> -->
   </Listgroup>
 </Card>

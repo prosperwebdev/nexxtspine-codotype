@@ -47,7 +47,7 @@
                   <tr>
                     <td class="whitespace-nowrap py-4 md:w-[384px] flex flex-col gap-3">
                       <div class="flex items-center gap-4">
-                        <a href="#" class="hover:underline text-sm">{item.name}</a>
+                        <span class="text-sm">{item.name}</span>
                       </div>
 
                       {#if item.fieldType === 'radio'}
@@ -58,7 +58,7 @@
                         </Card>
                       {/if}
                       {#if item.fieldType === 'quantity'}
-                        <Listgroup active class="w-full">
+                        <Listgroup class="w-full">
                           {#each item.variations as variation}
                             {#if variation.quantity > 0}
                               <ListgroupItem class="text-base font-semibold gap-2">
