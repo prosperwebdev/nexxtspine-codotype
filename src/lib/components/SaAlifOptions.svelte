@@ -36,7 +36,7 @@
       pill={true}
       outline={false}
       size="xs"
-      on:click={() => {
+      onclick={() => {
         if ($quantities[itemIndex].variations[variationIndex].quantity > 0) {
           $quantities[itemIndex].variations[variationIndex].quantity--;
         }
@@ -46,7 +46,7 @@
     <Label class="flex-grow-1">
       <NumberInput bind:value={$quantities[itemIndex].variations[variationIndex].quantity} class="flex-1 text-center" size="sm" />
     </Label>
-    <Button class="h-8 w-8" size="xs" color="alternative" on:click={$quantities[itemIndex].variations[variationIndex].quantity++}>
+    <Button class="h-8 w-8" size="xs" color="alternative" onclick={$quantities[itemIndex].variations[variationIndex].quantity++}>
       <PlusOutline class="w-4 h-4" />
     </Button>
   </TableBodyCell>

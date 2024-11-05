@@ -29,6 +29,6 @@
     </div>
   {/if}
   <div class="flex flex-col gap-4 px-4 mt-4">
-    <a href={$stepperUrl} class="bg-primary-0 p-2 rounded-lg flex flex-row content-center justify-center" on:click={$currentStep++}>{$buttonText}</a>
+    <a href={$stepperUrl} class="bg-primary-0 p-2 rounded-lg flex flex-row content-center justify-center" onclick={$currentStep++}>{$buttonText}</a>
   </div>
 </div>
