@@ -8,4 +8,4 @@
     <BreadcrumbItem>Recent products</BreadcrumbItem>
   </Breadcrumb>
 </div>
-Recent cases page
+Recent orders page

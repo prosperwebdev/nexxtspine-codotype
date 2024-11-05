@@ -11,53 +11,24 @@
     TableBodyRow,
     TableHead,
     TableHeadCell,
-    Card
+    Card,
+    Radio
   } from 'flowbite-svelte';
-  import { PlusOutline, MinusOutline } from 'flowbite-svelte-icons';
+  import { PlusOutline, MinusOutline, CheckCircleOutline } from 'flowbite-svelte-icons';
   import { Checkbox } from 'flowbite-svelte';
 
   let quantityContainerClass = 'grid grid-cols-[auto_1fr_auto] gap-3 items-center px-3';
 
-  let alifQuantities = $state({
-    footprints: {
-      sm: 0,
-      md: 0,
-      lg: 0
-    },
-    heights: {
-      xs: 0,
-      sm: 0,
-      md: 0,
-      lg: 0,
-      xl: 0,
-      xxl: 0
-    },
-    lordoses: {
-      xs: 0,
-      sm: 0,
-      md: 0,
-      lg: 0
-    },
-    screwAngulations: {
-      cephaladCaudal: 0,
-      Medial: 0
-    },
-    screwSizeSmall: {
-      xs: 0,
-      sm: 0,
-      md: 0,
-      lg: 0
-    },
-    screwSizeMedium: {
-      xs: 0,
-      sm: 0,
-      md: 0,
-      lg: 0
-    }
-  });
+  import { getContext } from 'svelte';
+  const quantities = getContext('order');
+  const surgeryInfo = getContext('surgeryInfo');
+
+  const onScrewTypeSelected = (e, itemIndex) => {
+    $quantities[itemIndex].selectedValue = e.target.value;
+  };
 </script>
 
-{#snippet itemDetailRow(rowDetailName, subItemName, subItemSize)}
+{#snippet itemDetailRow(rowDetailName, itemIndex, variationIndex)}
   <TableBodyCell>{rowDetailName}</TableBodyCell>
   <TableBodyCell class={quantityContainerClass}>
     <Button
@@ -67,20 +38,16 @@
       outline={false}
       size="xs"
       on:click={() => {
-        alifQuantities[subItemName][subItemSize] > 0 && alifQuantities[subItemName][subItemSize]--;
+        if ($quantities[itemIndex].variations[variationIndex].quantity > 0) {
+          $quantities[itemIndex].variations[variationIndex].quantity--;
+        }
       }}>
       <MinusOutline class="w-4 h-4" />
     </Button>
     <Label class="flex-grow-1">
-      <NumberInput bind:value={alifQuantities[subItemName][subItemSize]} class="flex-1 text-center" size="sm" />
+      <NumberInput bind:value={$quantities[itemIndex].variations[variationIndex].quantity} class="flex-1 text-center" size="sm" />
     </Label>
-    <Button
-      class="h-8 w-8"
-      size="xs"
-      color="alternative"
-      on:click={() => {
-        alifQuantities[subItemName][subItemSize]++;
-      }}>
+    <Button class="h-8 w-8" size="xs" color="alternative" on:click={$quantities[itemIndex].variations[variationIndex].quantity++}>
       <PlusOutline class="w-4 h-4" />
     </Button>
   </TableBodyCell>
@@ -89,149 +56,56 @@
 <div class="flex flex-col gap-6">
   <h3 class="text-md leading-none text-gray-900 dark:text-white">Customize</h3>
   <Accordion activeClass="bg-primary-0 dark:bg-gray-800 text-blue-600 dark:text-white focus:ring-4 focus:ring-green-200 dark:focus:ring-green-600">
-    <AccordionItem>
-      <span slot="header">Footprints</span>
-      <Table>
-        <TableHead>
-          <TableHeadCell>Size (mm)</TableHeadCell>
-          <TableHeadCell>Quantity</TableHeadCell>
-        </TableHead>
-        <TableBody tableBodyClass="divide-y">
-          <TableBodyRow>
-            {@render itemDetailRow('24D x 32W', 'footprints', 'sm')}
-          </TableBodyRow>
-          <TableBodyRow>
-            {@render itemDetailRow('27D x 36W', 'footprints', 'md')}
-          </TableBodyRow>
-          <TableBodyRow>
-            {@render itemDetailRow('30D x 40W', 'footprints', 'lg')}
-          </TableBodyRow>
-        </TableBody>
-      </Table>
-    </AccordionItem>
-    <AccordionItem>
-      <span slot="header">Heights</span>
-      <Table>
-        <TableHead>
-          <TableHeadCell>Size (mm)</TableHeadCell>
-          <TableHeadCell>Quantity</TableHeadCell>
-        </TableHead>
-        <TableBody tableBodyClass="divide-y">
-          <TableBodyRow>
-            {@render itemDetailRow('10', 'heights', 'xs')}
-          </TableBodyRow>
-          <TableBodyRow>
-            {@render itemDetailRow('12', 'heights', 'sm')}
-          </TableBodyRow>
-          <TableBodyRow>
-            {@render itemDetailRow('14', 'heights', 'md')}
-          </TableBodyRow>
-          <TableBodyRow>
-            {@render itemDetailRow('16', 'heights', 'lg')}
-          </TableBodyRow>
-          <TableBodyRow>
-            {@render itemDetailRow('18', 'heights', 'xl')}
-          </TableBodyRow>
-          <TableBodyRow>
-            {@render itemDetailRow('20', 'heights', 'xxl')}
-          </TableBodyRow>
-        </TableBody>
-      </Table>
-    </AccordionItem>
-    <AccordionItem>
-      <span slot="header">Lordoses</span>
-      <Table>
-        <TableHead>
-          <TableHeadCell>Degrees</TableHeadCell>
-          <TableHeadCell>Quantity</TableHeadCell>
-        </TableHead>
-        <TableBody tableBodyClass="divide-y">
-          <TableBodyRow>
-            {@render itemDetailRow('8\u00B0', 'lordoses', 'xs')}
-          </TableBodyRow>
-          <TableBodyRow>
-            {@render itemDetailRow('14\u00B0', 'lordoses', 'sm')}
-          </TableBodyRow>
-          <TableBodyRow>
-            {@render itemDetailRow('20\u00B0', 'lordoses', 'md')}
-          </TableBodyRow>
-          <TableBodyRow>
-            {@render itemDetailRow('25\u00B0', 'lordoses', 'lg')}
-          </TableBodyRow>
-        </TableBody>
-      </Table>
-    </AccordionItem>
-    <AccordionItem>
-      <span slot="header">Screw Angulations</span>
-      <Table>
-        <TableHead>
-          <TableHeadCell>Type</TableHeadCell>
-          <TableHeadCell>Quantity</TableHeadCell>
-        </TableHead>
-        <TableBody tableBodyClass="divide-y">
-          <TableBodyRow>
-            {@render itemDetailRow('45° Cephalad', 'screwAngulations', 'cephaladCaudal')}
-          </TableBodyRow>
-          <TableBodyRow>
-            {@render itemDetailRow('10° Medial', 'screwAngulations', 'medial')}
-          </TableBodyRow>
-        </TableBody>
-      </Table>
-    </AccordionItem>
-    <AccordionItem>
-      <span slot="header">Ø5.0 Diameter Screws</span>
-      <Table>
-        <TableHead>
-          <TableHeadCell>Length</TableHeadCell>
-          <TableHeadCell>Quantity</TableHeadCell>
-        </TableHead>
-        <TableBody tableBodyClass="divide-y">
-          <TableBodyRow>
-            {@render itemDetailRow('20mm', 'screwSizeSmall', 'xs')}
-          </TableBodyRow>
-          <TableBodyRow>
-            {@render itemDetailRow('25mm', 'screwSizeSmall', 'sm')}
-          </TableBodyRow>
-          <TableBodyRow>
-            {@render itemDetailRow('30mm', 'screwSizeSmall', 'md')}
-          </TableBodyRow>
-          <TableBodyRow>
-            {@render itemDetailRow('35mm', 'screwSizeSmall', 'lg')}
-          </TableBodyRow>
-        </TableBody>
-      </Table>
-    </AccordionItem>
-    <AccordionItem>
-      <span slot="header">Ø5.5 Diameter Screws</span>
-      <Table>
-        <TableHead>
-          <TableHeadCell>Length</TableHeadCell>
-          <TableHeadCell>Quantity</TableHeadCell>
-        </TableHead>
-        <TableBody tableBodyClass="divide-y">
-          <TableBodyRow>
-            {@render itemDetailRow('20mm', 'screwSizeMedium', 'xs')}
-          </TableBodyRow>
-          <TableBodyRow>
-            {@render itemDetailRow('25mm', 'screwSizeMedium', 'sm')}
-          </TableBodyRow>
-          <TableBodyRow>
-            {@render itemDetailRow('30mm', 'screwSizeMedium', 'md')}
-          </TableBodyRow>
-          <TableBodyRow>
-            {@render itemDetailRow('35mm', 'screwSizeMedium', 'lg')}
-          </TableBodyRow>
-        </TableBody>
-      </Table>
-    </AccordionItem>
+    {#each $quantities as $item, itemIndex}
+      <AccordionItem>
+        <span slot="header">{$item.name}</span>
+        {#if $item.fieldType === 'quantity'}
+          <Table>
+            <TableHead>
+              <TableHeadCell>Size</TableHeadCell>
+              <TableHeadCell>Quantity</TableHeadCell>
+            </TableHead>
+            <TableBody tableBodyClass="divide-y">
+              {#each $item.variations as $variation, variationIndex}
+                <TableBodyRow>
+                  {@render itemDetailRow($variation.name, itemIndex, variationIndex)}
+                </TableBodyRow>
+              {/each}
+            </TableBody>
+          </Table>
+        {/if}
+
+        {#if $item.fieldType === 'radio'}
+          <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 items-center">
+            {#each $item.variations as $variation, variationIndex}
+              <Radio
+                value={$quantities[itemIndex].variations[variationIndex].value}
+                name="custom"
+                custom
+                on:click={(e) => {
+                  onScrewTypeSelected(e, itemIndex);
+                }}>
+                <div
+                  for="hosting-big"
+                  class="inline-flex justify-start items-center gap-3 py-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-primary-500 peer-checked:border-primary-600 peer-checked:text-primary-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                  <CheckCircleOutline class="ms-3 w-5 h-5" />
+                  <div class="block">
+                    <div class="w-full text-sm">{$variation.name}</div>
+                  </div>
+                </div>
+              </Radio>
+            {/each}
+          </div>
+        {/if}
+      </AccordionItem>
+    {/each}
   </Accordion>
 
   <hr class="my-4 md:my-8 border-gray-200 dark:border-gray-800" />
 
   <h3 class="text-md leading-none text-gray-900 dark:text-white">Additional options</h3>
-  <Card class="flex flex-col gap-6 p-6">
+  <Card class="flex flex-col gap-6 p-6 w-full">
     <Checkbox>Talk with customer support?</Checkbox>
     <Checkbox>Save this configuration for future orders</Checkbox>
   </Card>
-  <Button class="w-full">Place order</Button>
 </div>
