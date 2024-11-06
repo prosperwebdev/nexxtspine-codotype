@@ -35,7 +35,7 @@
       title: 'Stand Alone Alif',
       date: 'January 13th, 2022',
       hospital: 'Southern Maine Medical Center',
-      surgeon: 'Dr. Sarah Thompson'
+      surgeon: 'Dr. Samantha Thompson'
     },
     {
       id: 1,

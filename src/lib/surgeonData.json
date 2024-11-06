@@ -1,9 +1,9 @@
 [
   {
-    "name": "Dr. Sarah Thompson",
-    "value": "Dr. Sarah Thompson",
+    "name": "Dr. Samantha Thompson",
+    "value": "Dr. Samantha Thompson",
     "image": "https://example.com/images/sarah_thompson.jpg",
-    "url": "/recent-orders?search=Dr.%20Sarah%20Thompson",
+    "url": "/recent-orders?search=Dr.%20Samantha%20Thompson",
     "last_date_of_surgery": "2024-10-15",
     "initials": "ST"
   },
