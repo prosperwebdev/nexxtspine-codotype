@@ -18,7 +18,7 @@
 <div class="p-6">
   <div class="shrink-0 max-w-md lg:max-w-lg mx-auto">
     <img
-      class="w-full max-h-24 object-contain"
+      class="w-full object-contain max-h-48"
       src="https://nexxtspine.com/wp-content/uploads/2022/01/SA-ALIF-Image-NO-Shadow-e1642776756555.png"
       alt="" />
   </div>

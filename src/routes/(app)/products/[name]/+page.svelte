@@ -4,7 +4,6 @@
   import hospitalData from '$lib/hospitalData.json';
   import Toolbar from '../../../../lib/components/Toolbar.svelte';
   import { getContext, onMount } from 'svelte';
-  let surgeryInfo = getContext('surgeryInfo');
 
   let surgeons = surgeonData;
   let hospitals = hospitalData;
@@ -14,6 +13,7 @@
     $surgeryInfo.date = date;
   }
 
+  let surgeryInfo = getContext('surgeryInfo');
   let currentStep = getContext('currentStep');
   let buttonText = getContext('buttonText');
   let stepperUrl = getContext('stepperUrl');
@@ -29,7 +29,7 @@
 
 <div class="p-6 items-center gap-4">
   <img
-    class="w-full max-h-24 object-contain"
+    class="w-full max-h-48 object-contain"
     src="https://nexxtspine.com/wp-content/uploads/2022/01/SA-ALIF-Image-NO-Shadow-e1642776756555.png"
     alt="" />
 </div>

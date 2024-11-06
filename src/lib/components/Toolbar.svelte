@@ -1,13 +1,12 @@
 <script>
   import { Toolbar, ToolbarButton, Card, Modal, Avatar, Button } from 'flowbite-svelte';
-  import { ArrowLeftOutline, DotsVerticalOutline, FileDocOutline, NewspaperOutline, ExclamationCircleOutline } from 'flowbite-svelte-icons';
+  import { DotsVerticalOutline, FileDocOutline, NewspaperOutline, ExclamationCircleOutline } from 'flowbite-svelte-icons';
   export let title;
   let modalOpen = false;
 </script>
 
 <Toolbar>
   <div class="flex flex-row gap-4 items-center">
-    <ArrowLeftOutline class="w-7 h-7 text-white" />
     <h1 class="text-sm text-gray-900 sm:text-2xl dark:text-white flex-0">{title}</h1>
   </div>
   <ToolbarButton slot="end" on:click={() => (modalOpen = true)}><DotsVerticalOutline class="w-6 h-6" /></ToolbarButton>
