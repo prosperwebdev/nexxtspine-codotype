@@ -4,14 +4,23 @@
   import { sineIn } from 'svelte/easing';
   import OrderSummary from './OrderSummary.svelte';
   import { orderOne } from '$lib/sampleOrders.js';
+
+  import { onMount } from 'svelte';
+  let filterText = $state('');
+
+  onMount(() => {
+    let searchString = new URLSearchParams(window.location.search).get('search');
+    if (searchString) {
+      filterText = searchString;
+    }
+  });
+
   let hidden = $state(true);
   let transitionParamsRight = {
     x: 320,
     duration: 200,
     easing: sineIn
   };
-
-  let filterText = $state('');
 
   const orders = [
     {
