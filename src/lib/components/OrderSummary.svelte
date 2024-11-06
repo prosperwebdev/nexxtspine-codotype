@@ -7,7 +7,7 @@
   <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
     {#each orders as item}
       <tr>
-        <td class="whitespace-nowrap py-4 md:w-[384px] flex flex-col gap-3">
+        <td class="whitespace-nowrap py-4 flex flex-col gap-3">
           <div class="flex items-center gap-4">
             <span class="text-sm">{item.name}</span>
           </div>

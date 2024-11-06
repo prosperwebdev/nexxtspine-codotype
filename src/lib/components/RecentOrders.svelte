@@ -17,7 +17,7 @@
 
   let hidden = $state(true);
   let transitionParamsRight = {
-    x: 320,
+    x: 384,
     duration: 200,
     easing: sineIn
   };
@@ -93,7 +93,7 @@
   </Timeline>
 </Card>
 
-<Drawer placement="right" transitionType="fly" transitionParams={transitionParamsRight} {hidden} bgOpacity="bg-opacity-80">
+<Drawer placement="right" transitionType="fly" transitionParams={transitionParamsRight} {hidden} bgOpacity="bg-opacity-80" class="w-96">
   <div class="flex items-center">
     <h5 id="drawer-label" class="inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400">
       <InfoCircleSolid class="w-5 h-5 me-2.5" />Order number: 123456
