@@ -87,20 +87,21 @@
           <ListgroupItem class="border-none text-sm font-normal gap-2">Hospital<span class="text-xs font-bold">{order.hospital}</span></ListgroupItem>
         </Listgroup>
 
-        <Drawer placement="right" transitionType="fly" transitionParams={transitionParamsRight} {hidden} bgOpacity="bg-opacity-30">
-          <div class="flex items-center">
-            <h5 id="drawer-label" class="inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400">
-              <InfoCircleSolid class="w-5 h-5 me-2.5" />Items
-            </h5>
-            <CloseButton on:click={() => (hidden = !hidden)} class="mb-4 dark:text-white" />
-          </div>
-
-          <div class="space-y-2">
-            <OrderSummary orders={orderOne} />
-          </div>
-        </Drawer>
         <Button color="alternative" class="mt-2">Re-order<ArrowsRepeatOutline class="ms-2 w-5 h-5" /></Button>
       </TimelineItem>
     {/each}
   </Timeline>
 </Card>
+
+<Drawer placement="right" transitionType="fly" transitionParams={transitionParamsRight} {hidden} bgOpacity="bg-opacity-80">
+  <div class="flex items-center">
+    <h5 id="drawer-label" class="inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400">
+      <InfoCircleSolid class="w-5 h-5 me-2.5" />Order number: 123456
+    </h5>
+    <CloseButton on:click={() => (hidden = !hidden)} class="mb-4 dark:text-white" />
+  </div>
+
+  <div class="space-y-2">
+    <OrderSummary orders={orderOne} />
+  </div>
+</Drawer>
