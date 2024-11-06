@@ -3,7 +3,7 @@
   import surgeonData from '$lib/surgeonData.json';
   import hospitalData from '$lib/hospitalData.json';
   import Toolbar from '../../../../lib/components/Toolbar.svelte';
-  import { getContext } from 'svelte';
+  import { getContext, onMount } from 'svelte';
   let surgeryInfo = getContext('surgeryInfo');
 
   let surgeons = surgeonData;
@@ -13,6 +13,16 @@
     let date = event.detail;
     $surgeryInfo.date = date;
   }
+
+  let currentStep = getContext('currentStep');
+  let buttonText = getContext('buttonText');
+  let stepperUrl = getContext('stepperUrl');
+
+  onMount(() => {
+    $currentStep = 1;
+    $buttonText = 'Next';
+    $stepperUrl = './sa-alif/customize';
+  });
 </script>
 
 <Toolbar title="Stand Alone Alif" />
